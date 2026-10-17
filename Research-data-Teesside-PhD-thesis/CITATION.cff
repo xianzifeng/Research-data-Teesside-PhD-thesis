@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this code or the synthetic dataset, please cite the thesis and the archived release of this repository."
+type: software
+title: "Replication materials for 'Institutional Constraints and Public Data Commercialization: Evidence from a Chinese Meteorological Media Enterprise'"
+authors:
+  - family-names: Bai
+    given-names: Yu
+    affiliation: "Teesside University International Business School"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+version: 1.0.0
+date-released: 2026-10-17
+repository-code: "https://github.com/xianzifeng/Research-data-Teesside-PhD-thesis"
+# doi: 10.5281/zenodo.XXXXXXX   <- fill in after the first Zenodo-archived release
+license: MIT
+keywords:
+  - public data commercialization
+  - meteorological data
+  - institutional theory
+  - dynamic capabilities
+  - structural equation modeling
+  - Mplus
+  - synthetic data
+references:
+  - type: thesis
+    title: "Institutional Constraints and Public Data Commercialization: Evidence from a Chinese Meteorological Media Enterprise"
+    authors:
+      - family-names: Bai
+        given-names: Yu
+    institution:
+      name: "Teesside University"
+    year: 2026
+    thesis-type: "Doctoral thesis (OBE5008-N)"

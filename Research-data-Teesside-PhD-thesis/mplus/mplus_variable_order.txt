@@ -1,0 +1,2 @@
+NAMES = emp unit wave et da a1 a2 a3 a4 a5 a6 fa1 fa2 fa3 fa4 fa5 drr1 drr2 drr3 drr4 trr1 trr2 trr3 trr4 orr1 orr2 orr3 orr4 crr1 crr2 crr3 crr4 ev1 ev2 ev3 psv1 psv2 psv3 cv1 cv2 cv3 div1 div2 div3 js1 js2 js3 pr1 pr2 pr1xpr2 iv1 iv2 lnemp age ncomp lngdp;
+(source: SYNTHETIC; N = 1800 rows)

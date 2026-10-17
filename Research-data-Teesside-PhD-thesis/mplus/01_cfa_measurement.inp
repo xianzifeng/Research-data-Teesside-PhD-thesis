@@ -1,0 +1,44 @@
+TITLE:   CFA of the 33-item measurement model (Table 4-4 / Table 5-2) with
+         the six Policy Regulation perception items (Appendix A, A1-A6).
+         Thesis Section 4.4.1 Stage 4, 4.5.7, 4.7.1.  Mplus 8.8.
+         Run code/09_prepare_mplus_data.py first to create panel.dat.
+
+DATA:    FILE IS panel.dat;
+
+VARIABLE:
+  NAMES ARE emp unit wave et da
+            a1 a2 a3 a4 a5 a6
+            fa1 fa2 fa3 fa4 fa5
+            drr1 drr2 drr3 drr4 trr1 trr2 trr3 trr4
+            orr1 orr2 orr3 orr4 crr1 crr2 crr3 crr4
+            ev1 ev2 ev3 psv1 psv2 psv3 cv1 cv2 cv3 div1 div2 div3
+            js1 js2 js3 pr1 pr2 pr1xpr2 iv1 iv2 lnemp age ncomp lngdp;
+  USEVARIABLES ARE a1-a6 fa1-fa5 drr1-drr4 trr1-trr4 orr1-orr4 crr1-crr4
+                   ev1-ev3 psv1-psv3 cv1-cv3 div1-div3;
+  MISSING ARE ALL (9999);
+  CLUSTER IS emp;            ! 300 employees x 6 waves: person-wave records nested in employees
+
+ANALYSIS:
+  TYPE IS COMPLEX;           ! cluster-robust (sandwich) standard errors, Section 4.9.3
+  ESTIMATOR IS MLR;          ! robust ML, Section 4.6.1 (Mardia kurtosis 12.4, Appendix D.2)
+
+MODEL:
+  ! first-order factors
+  PR1P BY a1 a2 a3;          ! policy support perception
+  PR2P BY a4 a5 a6;          ! compliance constraint perception (high = heavier constraints)
+  FA   BY fa1 fa2 fa3 fa4 fa5;
+  DRR  BY drr1 drr2 drr3 drr4;
+  TRR  BY trr1 trr2 trr3 trr4;
+  ORR  BY orr1 orr2 orr3 orr4;
+  CRR  BY crr1 crr2 crr3 crr4;
+  EV   BY ev1 ev2 ev3;
+  PSV  BY psv1 psv2 psv3;
+  CV   BY cv1 cv2 cv3;
+  DIV  BY div1 div2 div3;
+  ! second-order factors (Sections 4.5.3 and 4.5.4)
+  RR   BY DRR TRR ORR CRR;
+  DC   BY EV PSV CV DIV;
+
+OUTPUT:  STANDARDIZED (STDYX) MODINDICES (10) RESIDUAL;
+         ! fit indices: chi-square, RMSEA (90% CI), CFI, TLI, SRMR -> Table 5-2 note
+SAVEDATA: FILE IS 01_cfa_fscores.dat; SAVE IS FSCORES;

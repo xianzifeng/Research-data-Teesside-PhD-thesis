@@ -1,0 +1,13 @@
+Synthetic data generation log (seed 20251017)
+FA: mean 3.119 (target 3.146), sd 1.091 (target 1.183)
+RR: mean 3.112 (target 3.11), sd 0.729 (target 0.725)
+DC: mean 3.138 (target 3.154), sd 0.818 (target 0.814)
+corr FA-RR 0.399 (0.399), FA-DC 0.441 (0.448), RR-DC 0.536 (0.558)
+alpha FA: 0.869
+alpha DRR: 0.832
+alpha EV: 0.835
+alpha PR2 (A4-A6): 0.718
+ICC(1) FA: 0.432 (target 0.42)
+ICC(1) RR: 0.395 (target 0.38)
+ICC(1) DC: 0.329 (target 0.29)
+ET=1 person-waves: 504 (thesis 501); DA=1: 708 (thesis 708)
