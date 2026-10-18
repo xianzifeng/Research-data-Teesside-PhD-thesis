@@ -1,0 +1,31 @@
+{
+  "title": "Replication materials for 'Institutional Constraints and Public Data Commercialization: Evidence from a Chinese Meteorological Media Enterprise'",
+  "upload_type": "software",
+  "description": "Python code (thesis Appendix C), Mplus 8.8 input files, requirements.txt and a fully synthetic replication dataset (300 employees x 6 waves, 9 business units) for the Teesside University doctoral thesis by Bai Yu. The real Huafeng Group panel is not deposited (organisational confidentiality agreements, thesis Appendix H.2); the synthetic data reproduce the variable structure and the published moments so that every analysis runs end-to-end.",
+  "creators": [
+    {
+      "name": "Bai, Yu",
+      "affiliation": "Teesside University International Business School"
+    }
+  ],
+  "keywords": [
+    "public data commercialization",
+    "meteorological data",
+    "institutional theory",
+    "dynamic capabilities",
+    "structural equation modeling",
+    "Mplus",
+    "synthetic data",
+    "replication materials"
+  ],
+  "license": "CC-BY-4.0",
+  "access_right": "open",
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/xianzifeng/Research-data-Teesside-PhD-thesis",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}
