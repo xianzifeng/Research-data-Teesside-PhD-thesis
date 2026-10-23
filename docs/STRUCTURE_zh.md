@@ -22,6 +22,8 @@
 | `code/07_robustness_checks.py` | 留一年、留一单元、替代测量、安慰剂置换、缩尾、剔除 Cook's D、分区域、按单元的 wild-cluster bootstrap | 附录 C.5；Table 5-5、5-8–5-12、D-3、D-4 |
 | `code/08_mmdv_worksheet.py` | MMDV 工作表：CBV / MBV / IBV、等权与加权综合值、三情景敏感性（结果与附录 E 完全一致） | 附录 E；Table 5-14、5-15 |
 | `code/09_prepare_mplus_data.py` | 导出 Mplus 用的无表头 `panel.dat` 与变量顺序文件 | — |
+| `code/10_sem_latent_semopy.py` | **不用 Mplus 的潜变量 SEM**：用 semopy 拟合与 mplus/01–05 完全相同的五个模型，员工聚类 bootstrap 给出标准误、percentile/BC 区间、简单斜率、ET/DA 组间差异 | Table 5-2、5-3、5-4、5-6、5-7、5-13、5-16 |
+| `code/11_prepare_real_panel.py` | 把作者本机的原始问卷/档案 Excel 转成编码手册格式（只在本机运行，输出被 .gitignore 排除） | — |
 | `code/run_all.py` | 一键按顺序运行 00–09，日志写入 `outputs/run_log.txt` | — |
 | `code/utils.py` | 公共函数（α、CR/AVE、HTMT、ICC、KMO、聚类 bootstrap、BC 区间） | — |
 | `mplus/*.inp` | Mplus 8.8 输入：01 二阶 CFA；02 结构模型（MLR、TYPE=COMPLEX）；03 5000 次 bootstrap 中介（BCBOOTSTRAP 区间）；04 PR1×PR2 交互；05 ET/DA 多组模型 | §4.6.1；Table 5-2、5-3、5-4、5-6、5-7、5-13 |
@@ -53,7 +55,7 @@
    （若仓库已存在且非空，先 `git pull origin main --allow-unrelated-histories`。）
 4. 在 GitHub 上 **Releases → Draft a new release**，tag 填 `v1.0.0`，标题 `Thesis submission version`。
 5. 获取 DOI：登录 <https://zenodo.org>（用 GitHub 账号），在 *GitHub* 页面把本仓库的开关打开，然后回到 GitHub 发布 release；几分钟后 Zenodo 会生成 DOI。
-6. 把 DOI 填回三处：`README.md` 顶部徽章、`CITATION.cff` 的 `doi:` 字段、论文 4.8.4 节与附录 H.4（把 "prior to the viva" 改为已完成时态并附 DOI）。
+6. DOI 已生成并回填：`10.5281/zenodo.23448040`（release 1.0.1，2026-10-18）。README 徽章、`CITATION.cff` 与论文 4.8.4、4.9.4、附录 C、H.4、Table 7-2 均已引用该 DOI。以后若发新 release，Zenodo 会生成新的版本 DOI；论文引用保持 1.0.1 的版本 DOI 即可。
 
 ## 三、答辩前还需作者补充的内容
 

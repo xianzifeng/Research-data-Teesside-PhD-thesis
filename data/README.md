@@ -6,5 +6,5 @@
 ## What is not here
 The real Huafeng Group panel, the business-unit financial indicators, the interview transcripts and the supplementary Datasets B and C (Section 5.6.3) are governed by the organisational access approval, data-sharing agreements and confidentiality undertakings reproduced in thesis Appendix H.2. They are therefore not deposited in any public repository (thesis §4.8.4; Appendix H.4).
 
-## How to request the real data
-Qualified researchers may request de-identified individual-level data from the author (contact details in the thesis / `CITATION.cff`). Requests are subject to the confidentiality agreements above and to the retention schedule in §4.8.4 (raw survey data retained ten years; transcripts and audio five years post-publication). If the data are made available, place the file as `data/real/huafeng_panel_person_wave.csv` with the column names documented in `docs/CODEBOOK.md`; all scripts will then use it automatically.
+## Availability
+The real data are confidential internal enterprise data and are not provided outside the research team in any form, including de-identified extracts (thesis §4.8.4, Appendix H.4). The `data/real/` folder exists only so that the author can run the pipeline locally on the confidential panel (`huafeng_panel_person_wave.csv`, column names as in `docs/CODEBOOK.md`); it is excluded from version control.

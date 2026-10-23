@@ -6,11 +6,11 @@ authors:
   - family-names: Bai
     given-names: Yu
     affiliation: "Teesside University International Business School"
-    # orcid: "https://orcid.org/0000-0000-0000-0000"
-version: 1.0.0
-date-released: 2026-10-17
+    orcid: "https://orcid.org/0009-0000-6606-5569"
+version: 1.0.1
+date-released: 2026-10-18
 repository-code: "https://github.com/xianzifeng/Research-data-Teesside-PhD-thesis"
-# doi: 10.5281/zenodo.XXXXXXX   <- fill in after the first Zenodo-archived release
+doi: 10.5281/zenodo.23448040
 license: MIT
 keywords:
   - public data commercialization

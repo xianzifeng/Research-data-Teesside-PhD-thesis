@@ -3,7 +3,7 @@
 Doctoral thesis, Teesside University International Business School (module OBE5008-N).
 Author: Bai Yu · Supervisor: Murphy · Submitted October 2026.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX) ← *replace with the Zenodo DOI after the first GitHub release*
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23448040.svg)](https://doi.org/10.5281/zenodo.23448040)  Archived release 1.0.1 (18 October 2026).
 
 This repository contains everything needed to re-run the quantitative analyses of Chapters 4–5 and the MMDV valuation worksheet of Appendix E:
 
@@ -12,7 +12,7 @@ This repository contains everything needed to re-run the quantitative analyses o
 * a **synthetic dataset** with exactly the structure of the Huafeng panel (300 employees × 6 waves, 9 business units, 33 + 6 Likert items, archival PR1/PR2 composites, instruments, controls, marker items) so that every script runs end-to-end;
 * `requirements.txt`, a codebook and this documentation.
 
-> **Data availability.** The real person-wave panel and the business-unit financial indicators are **not** deposited: they are covered by the organisational access approval and data-sharing agreements described in thesis Appendix H.2. De-identified data are available from the author to qualified researchers on reasonable request, subject to those agreements (thesis §4.8.4, Appendix H.4). The synthetic file reproduces the variable structure and the target moments reported in Tables 5-1 to 5-3; it is **not** real data and point estimates obtained from it will differ from the thesis.
+> **Data availability.** The real person-wave panel and the business-unit financial indicators are **not** deposited: they are covered by the organisational access approval and data-sharing agreements described in thesis Appendix H.2. They are classified as confidential internal enterprise data and are **not provided outside the research team in any form**, including de-identified extracts (thesis §4.8.4, Appendix H.4). The synthetic file reproduces the variable structure and the target moments reported in Tables 5-1 to 5-3; it is **not** real data and point estimates obtained from it will differ from the thesis.
 
 ## Repository structure
 
@@ -35,6 +35,8 @@ Research-data-Teesside-PhD-thesis/
 │   ├── 07_robustness_checks.py         Appendix C.5 — leave-one-out, placebo, winsorising, regions, wild-cluster bootstrap
 │   ├── 08_mmdv_worksheet.py            Appendix E — CBV / MBV / IBV, composite, sensitivity (Tables 5-14, 5-15)
 │   ├── 09_prepare_mplus_data.py        exports mplus/panel.dat for the .inp files
+│   ├── 10_sem_latent_semopy.py         open-source latent SEM equivalent of mplus/01-05 (semopy + employee-cluster bootstrap)
+│   ├── 11_prepare_real_panel.py        converts the author's raw files into the codebook layout (run locally only)
 │   ├── run_all.py                      runs 00–09 and writes outputs/run_log.txt
 │   └── utils.py                        shared helpers (α, CR/AVE, HTMT, ICC, KMO, cluster bootstrap, BC intervals)
 │
@@ -97,13 +99,19 @@ If the confidential panel is available (`data/real/huafeng_panel_person_wave.csv
 | Section 4.9.3 (ICC, effective N) | `02_measurement_checks.py` |
 | Appendix E / Tables 5-14, 5-15 (MMDV) | `08_mmdv_worksheet.py` (reproduces the worksheet figures exactly) |
 
+## Running the latent-variable models without Mplus
+
+`code/10_sem_latent_semopy.py` fits the same five models as the Mplus inputs with **semopy** (`pip install semopy`) and replaces TYPE = COMPLEX / BOOTSTRAP with an employee-cluster bootstrap (whole employees resampled), reporting standardised paths, fit indices (χ², CFI, TLI, RMSEA, SRMR), CR/AVE, indirect effects with percentile and bias-corrected intervals, the PR1 × PR2 simple slopes and the ET/DA group comparison. On the real panel: `python code/11_prepare_real_panel.py --survey … --archival …` then `python code/10_sem_latent_semopy.py --data data/real/huafeng_panel_person_wave.csv --boot 5000 --out outputs/real_results`. Only summary tables are written; no row-level data leave the computer.
+
 ## Software versions
 
 The thesis analyses were run with Python 3.11 — pandas 2.0.3, numpy 1.24.3, statsmodels 0.14.0, linearmodels 4.31, scipy 1.11.1, scikit-learn 1.3.0 — and Mplus 8.8. `requirements.txt` pins these versions; the scripts also run on current releases (tested with pandas 3.0 / statsmodels 0.15 / linearmodels 7.1).
 
 ## Citing
 
-See `CITATION.cff`. Please cite the thesis and the archived release (DOI) of this repository.
+See `CITATION.cff`. Suggested form:
+
+> Bai, Y. (2026) *Replication materials for 'Institutional constraints and public data commercialization: evidence from a Chinese meteorological media enterprise'* (Version 1.0.1) [Software and synthetic data set]. Zenodo. https://doi.org/10.5281/zenodo.23448040
 
 ## Licence
 
